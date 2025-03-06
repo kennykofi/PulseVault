@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../db');
 const router = express.Router();
 const moment = require('moment');
+const { authenticateToken, isAdmin } = require('../middleware/authMiddleware'); //import middleware
 
 // Log Security Events
 router.post('/log', async (req, res) => {
@@ -23,8 +24,8 @@ router.post('/log', async (req, res) => {
   }
 });
 
-//Get Security lOGS
-router.get('/:user_id', async (req, res) => {
+// ✅ Get Security Logs for User (Requires Authentication)
+router.get('/:user_id', authenticateToken, async (req, res) => {
   const { user_id } = req.params;
 
   try {
@@ -35,7 +36,18 @@ router.get('/:user_id', async (req, res) => {
 
     res.json({ user_id, security_logs: logs.rows });
   } catch (err) {
-    res.status(500).json({ error: err.message});
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ✅ Admin-Only Route: Get All Security Logs
+router.get('/admin/logs', authenticateToken, isAdmin, async (req, res) => {
+  try {
+    const logs = await pool.query("SELECT * FROM pulsevault.security_logs ORDER BY timestamp DESC");
+
+    res.json({ security_logs: logs.rows });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 

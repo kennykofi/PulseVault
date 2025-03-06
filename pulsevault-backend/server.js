@@ -3,13 +3,15 @@ const express = require('express');
 const cors = require('cors');
 const pool = require('./db'); // database connection
 const cookieParser = require('cookie-parser');
+const { authenticateToken, isAdmin } = require('./middleware/authMiddleware'); //Import middleware
+const { loginLimiter, apiLimiter } = require('./middleware/rateLimit');
 
 const app = express();
 
 // ✅ CORS Configuration (Fixes 'Access-Control-Allow-Origin' Error)
 app.use(cors({
-  origin: "http://localhost:3000", // ✅ Allow only frontend requests
-  credentials: true, // ✅ Allow cookies and authentication headers
+  origin: "http://localhost:3000", // Allow only frontend requests
+  credentials: true, //  Allow cookies and authentication headers
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type,Authorization"
 }));
@@ -17,10 +19,12 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+//Base API Route
 app.get('/', (req, res) => {
   res.send('PulseVault API is running!');
 });
 
+//Protected Route
 app.get('/protected', (req, res) => {
   console.log("Received Cookies:", req.cookies); // Log received cookies
   if (!req.cookies.jwt) {
@@ -28,6 +32,11 @@ app.get('/protected', (req, res) => {
   }
   res.json({ message: "🔒 Protected route accessed!", user: req.user });
 });
+
+//Admin-Only Route
+app.get('/admin-only', authenticateToken, isAdmin, (req, res) => {
+  res.json({ message: "🔑 Admin access granted!" });
+})
 
 // ✅ Import Routes
 const authRoutes = require('./routes/auth');
@@ -37,6 +46,7 @@ const securityLogRoutes = require('./routes/securityLog');
 app.use('/auth', authRoutes);
 app.use('/heartRate', heartRateRoutes);
 app.use('/securityLog', securityLogRoutes);
+app.use(apiLimiter);
 
 // ✅ Database Connection Test Route
 app.get('/test-db', async (req, res) => {

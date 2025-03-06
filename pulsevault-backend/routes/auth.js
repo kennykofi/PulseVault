@@ -3,12 +3,13 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const pool = require('../db');
 const cookieParser = require('cookie-parser'); // Import cookie-parser
+const { loginLimiter } = require('../middleware/rateLimit'); //Import rate-limiting
 require('dotenv').config();
 
 const router = express.Router();
 router.use(cookieParser()); // Enable cookie support
 
-// ✅ Function to Generate Access Token (Short-Lived)
+// ✅ Function to Generate Access Token (Short-lived)
 const generateAccessToken = (user) => {
     return jwt.sign(
         { user_id: user.user_id, role: user.role },
@@ -46,11 +47,9 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// ✅ User Login with Security Logging
-router.post('/login', async (req, res) => {
+// ✅ User Login with Security Logging & Rate-Limiting
+router.post('/login', loginLimiter, async (req, res) => {
     const { email, password } = req.body;
-
-    // Get real client IP address
     const ip_address = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || 'Unknown IP';
 
     try {
