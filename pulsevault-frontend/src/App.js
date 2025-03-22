@@ -1,24 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import FeaturesSection from './components/FeaturesSection';
+import AboutSection from './components/AboutSection';
+import Register from './pages/Register'; 
 
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import PrivateRoute from "./pages/PrivateRoute"; // Import the PrivateRoute
+function HomePage() {
+  return (
+    <>
+      <HeroSection />
+      <FeaturesSection />
+      <AboutSection />
+    </>
+  );
+}
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register />} />
-        
-        {/* Protected Routes */}
-        <Route element={<PrivateRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
       </Routes>
     </Router>
   );

@@ -1,0 +1,55 @@
+.register-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.register-container h2 {
+  text-align: center;
+  color: #F56A79;
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.register-container input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.register-container button {
+  padding: 14px;
+  background-color: #F56A79;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-container button:hover {
+  background-color: #e65568;
+}
+
+.register-container .message {
+  text-align: center;
+  color: #333;
+  margin-top: 12px;
+}
+
+.g-recaptcha {
+  margin: 0 auto;
+}
