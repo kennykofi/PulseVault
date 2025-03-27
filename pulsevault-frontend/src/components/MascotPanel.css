@@ -1,0 +1,80 @@
+.mascot-floating-panel {
+  position: relative;
+  flex: 1;
+  background: linear-gradient(to bottom right, #f0f5ff, #dceeff);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+  width: 50%; /* 🔥 make it half screen */
+  box-sizing: border-box;
+}
+
+.main-mascot {
+  width: 520px;
+  max-width: 100%;
+  position: relative;
+  border-radius: 15px;
+}
+
+
+/* Mini Mascots */
+.mini-mascot {
+  position: absolute;
+  width: 60px;
+  opacity: 0.65;
+  animation: fadeBlink 6s infinite ease-in-out;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  z-index: 2;
+  border-radius: 10px; 
+}
+
+/* ✨ Spread them around manually */
+.mini-1 { top: 1%; left: 2%; animation-delay: 0s; }
+.mini-2 { top: 1%; right: 2%; animation-delay: 1.5s; }
+.mini-3 { bottom: 9%; left: 1%; animation-delay: 3s; }
+.mini-4 { bottom: 9%; right: 1%; animation-delay: 2s; }
+.mini-5 { top: 38%; left: 1%; animation-delay: 4s; }
+.mini-6 { top: 38%; right: 1%; animation-delay: 5s; }
+
+.mascot-subtext {
+  position: absolute;
+  bottom: 1rem;
+  text-align: center;
+  width: 100%;
+  font-size: 1rem;
+  color: #555;
+  z-index: 4;
+}
+
+/* === Animations === */
+@keyframes fadeBlink {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .mascot-floating-panel {
+    width: 100%;
+    flex: none;
+    min-height: 300px;
+    padding: 1rem;
+  }
+
+  .main-mascot {
+    width: 180px;
+    max-width: 70vw;
+  }
+
+  .mini-mascot {
+    width: 40px;
+  }
+}

@@ -1,0 +1,207 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* === LEFT: Visual/Mascot Panel === */
+.mascot-panel {
+  flex: 1;
+  background: linear-gradient(to bottom right, #f4f9ff, #ddeeff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+/* ChillBeat main mascot */
+.main-mascot {
+  width: 320px;
+  max-width: 100%;
+  z-index: 3;
+}
+
+/* Mini mascots */
+.mini-mascot {
+  position: absolute;
+  width: 60px;
+  opacity: 0;
+  animation: fadeBlink 6s infinite ease-in-out;
+  z-index: 2;
+  border-radius: 12px;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.mini-1 { top: 10%; left: 12%; animation-delay: 0s; }
+.mini-2 { top: 20%; right: 15%; animation-delay: 1s; }
+.mini-3 { bottom: 25%; left: 10%; animation-delay: 2s; }
+.mini-4 { bottom: 12%; right: 10%; animation-delay: 3s; }
+.mini-5 { top: 38%; left: 5%; animation-delay: 4s; }
+.mini-6 { bottom: 8%; right: 25%; animation-delay: 5s; }
+
+.mascot-subtext {
+  position: absolute;
+  bottom: 2rem;
+  text-align: center;
+  width: 100%;
+  font-size: 0.95rem;
+  color: #555;
+  z-index: 4;
+}
+
+/* === RIGHT: Login Form Panel === */
+.form-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 3rem;
+}
+
+.form-panel form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-subtitle {
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.form-panel input[type="email"],
+.form-panel input[type="password"] {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-button {
+  background-color: #e53935;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.signup-prompt {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.forgot-link {
+  text-decoration: none;
+  color: #0077cc;
+}
+
+/* OTP Verification Form */
+.otp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.otp-container h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.otp-container .form-subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.otp-container input[name="otp"] {
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  letter-spacing: 4px;
+  font-family: monospace;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.otp-container input[name="otp"]:focus {
+  border-color: #e53935;
+}
+
+.otp-container .error-message {
+  color: red;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+}
+
+/* Animations */
+@keyframes fadeBlink {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* 📱 Mobile view */
+@media screen and (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .mascot-panel,
+  .form-panel {
+    width: 100%;
+    flex: none;
+    padding: 2rem 1rem;
+  }
+
+  .main-mascot {
+    width: 200px;
+  }
+
+  .mini-mascot {
+    width: 40px;
+  }
+}

@@ -50,6 +50,22 @@
   margin-top: 12px;
 }
 
+.login-prompt {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.login-prompt a {
+  color: #e53935;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+
 .g-recaptcha {
   margin: 0 auto;
 }

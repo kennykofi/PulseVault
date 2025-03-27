@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Link } from "react-router-dom";
 import './Register.css';
 import API from "../api"; 
 
 const SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+console.log("🧪 SITE_KEY:", SITE_KEY); 
 
 
 function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -23,11 +27,13 @@ function Register() {
   };
 
   const handleCaptchaChange = (token) => {
+    console.log("🔐 CAPTCHA Token:", token);
     setCaptchaToken(token);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submitting form with token:", captchaToken);
 
     if(!captchaToken) {
       return setMessage("Please verify reCAPTCHA");
@@ -39,14 +45,22 @@ function Register() {
         captcha: captchaToken,
       });
       setMessage(response.data.message);
-    } catch (error) {
-      setMessage(error.response?.data?.error || "Registration failed.");
-    }
-  };
+
+    // Redirect to login after short delay
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
+  } catch (error) {
+    setMessage(error.response?.data?.error || "Registration failed.");
+  }
+};
 
   return (
     <div className="register-container">
-      <h2>Register</h2>
+      <h2>Sign up</h2>
+      <div className= "login-prompt">
+      Already have an account? <Link to="/login">Log in</Link>
+      </div>
       {message && <p className="message">{message}</p>}
       <form onSubmit={handleSubmit}>
         <input type="text" name="first_name" placeholder="First Name" onChange={handleChange} required />
@@ -60,7 +74,7 @@ function Register() {
           onChange={handleCaptchaChange}
         />
 
-        <button type="submit">Sign Up</button>
+        <button type="submit">CREATE AN ACCOUNT</button>
       </form>
     </div>
   );

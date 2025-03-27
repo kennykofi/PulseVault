@@ -49,7 +49,11 @@ function Navbar() {
           {/* Mobile-only buttons */}
           {isMobileMenuOpen && (
             <div className="navbar-mobile-actions">
-              <button className="text-btn" onClick={closeMenu}>Login</button>
+              <button className="text-btn" onClick={() =>{
+                closeMenu();
+              }}>
+                Login
+                </button> 
               <button className="primary-btn" onClick={() => {
                 closeMenu();
                 navigate('/register');
@@ -64,7 +68,9 @@ function Navbar() {
         {/* Desktop-only buttons */}
         {!isMobileMenuOpen && (
           <div className="navbar-actions">
-            <button className="text-btn">Login</button>
+            <button className="text-btn" onClick={() => navigate('/login')}>
+              Login
+            </button>
             <button className="primary-btn" onClick={() => navigate('/register')}>Sign Up</button>
           </div>
         )}
