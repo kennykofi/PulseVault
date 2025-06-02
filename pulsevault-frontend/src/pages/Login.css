@@ -5,6 +5,18 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.pulsevault-logo {
+  width: 75px;
+  height: auto;
+}
+
+
 /* === LEFT: Visual/Mascot Panel === */
 .mascot-panel {
   flex: 1;
@@ -23,24 +35,6 @@
   max-width: 100%;
   z-index: 3;
 }
-
-/* Mini mascots */
-.mini-mascot {
-  position: absolute;
-  width: 60px;
-  opacity: 0;
-  animation: fadeBlink 6s infinite ease-in-out;
-  z-index: 2;
-  border-radius: 12px;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
-}
-
-.mini-1 { top: 10%; left: 12%; animation-delay: 0s; }
-.mini-2 { top: 20%; right: 15%; animation-delay: 1s; }
-.mini-3 { bottom: 25%; left: 10%; animation-delay: 2s; }
-.mini-4 { bottom: 12%; right: 10%; animation-delay: 3s; }
-.mini-5 { top: 38%; left: 5%; animation-delay: 4s; }
-.mini-6 { bottom: 8%; right: 25%; animation-delay: 5s; }
 
 .mascot-subtext {
   position: absolute;
@@ -117,8 +111,10 @@
 }
 
 .signup-prompt {
-  font-size: 0.9rem;
-  text-align: center;
+  color: #e53935;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: small;
 }
 
 .forgot-link {
@@ -149,6 +145,7 @@
   color: #555;
   margin-bottom: 1rem;
 }
+
 
 .otp-container input[name="otp"] {
   padding: 0.8rem 1rem;
@@ -201,7 +198,5 @@
     width: 200px;
   }
 
-  .mini-mascot {
-    width: 40px;
-  }
+
 }

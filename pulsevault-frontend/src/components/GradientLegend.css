@@ -1,0 +1,64 @@
+.legend-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.legend-bar {
+  position: relative;
+  margin-top: 0.5rem;
+  height: 29px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #2ecc71, #f1c40f, #e74c3c);
+  overflow: hidden;
+}
+
+.gradient {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* === Dot + Tooltip === */
+.legend-indicator {
+  position: absolute;
+  top: -45px; /* ↑ float above bar */
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  transition: left 0.4s ease;
+}
+
+.ring-dot {
+  width: 20px;
+  height: 20px;
+  border: 4px solid white;
+  background-color: orange;
+  border-radius: 50%;
+  margin-top: 13px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip {
+  background-color: #1E1D30;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 6px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #1E1D30 transparent transparent transparent;
+}

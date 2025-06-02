@@ -1,0 +1,145 @@
+.contact-section {
+  background-color: #1f1f22;
+  padding: 4rem 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-container-dark {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #1f1f22;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  border-radius: 16px;
+  color: #f5f5f5;
+}
+
+.contact-info-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1rem;
+}
+
+.contact-info-text h2 {
+  font-size: 2rem;
+  color: #f26d3d;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.contact-info-text p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+}
+
+.contact-icons {
+  margin-top: 1rem;
+}
+
+.contact-icons p {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+.contact-icons svg {
+  color: #f27457;
+  font-size: 0.95rem;
+}
+
+.contact-form-dark {
+  flex: 1;
+}
+
+.contact-form-dark h3 {
+  font-size: 1.25rem;
+  color: #f26d3d;
+  margin-bottom: 1.2rem;
+}
+
+.contact-form-dark form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.name-fields {
+  display: flex;
+  gap: 1rem;
+}
+
+.name-fields input {
+  flex: 1;
+}
+
+.contact-form-dark input,
+.contact-form-dark textarea {
+  padding: 0.75rem;
+  background-color: #2a2a2e;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.contact-form-dark textarea {
+  resize: none;
+  height: 160px;
+  padding: 0.75rem;
+  background-color: #2a2a2e;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contact-form-dark button {
+  background-color: #333;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form-dark button:hover {
+  background-color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container-dark {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .name-fields {
+    flex-direction: column;
+  }
+
+  .contact-info-text {
+    padding: 0;
+    text-align: center;
+  }
+
+  .contact-icons {
+    justify-content: center;
+    text-align: center;
+  }
+}

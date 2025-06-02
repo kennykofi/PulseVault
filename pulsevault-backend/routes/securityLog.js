@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../db');
 const router = express.Router();
 const moment = require('moment');
-const { authenticateToken, isAdmin } = require('../middleware/authMiddleware'); //import middleware
+const { authenticateToken, isAdmin } = require('../middleware/authMiddleware'); 
 
 // Log Security Events
 router.post('/log', async (req, res) => {
@@ -18,13 +18,13 @@ router.post('/log', async (req, res) => {
       [user_id || null, ip_address, attempt_type, status]
     );
 
-    res.json({ message: "✅ Security log recorded successfully!" });
+    res.json({ message: "Security log recorded successfully!" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// ✅ Get Security Logs for User (Requires Authentication)
+// Get Security Logs for User (Requires Authentication)
 router.get('/:user_id', authenticateToken, async (req, res) => {
   const { user_id } = req.params;
 
@@ -40,7 +40,7 @@ router.get('/:user_id', authenticateToken, async (req, res) => {
   }
 });
 
-// ✅ Admin-Only Route: Get All Security Logs
+// Admin-Only Route: Get All Security Logs
 router.get('/admin/logs', authenticateToken, isAdmin, async (req, res) => {
   try {
     const logs = await pool.query("SELECT * FROM pulsevault.security_logs ORDER BY timestamp DESC");

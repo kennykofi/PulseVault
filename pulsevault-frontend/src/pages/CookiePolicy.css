@@ -1,0 +1,62 @@
+.cookie-policy {
+  padding: 4rem 1.5rem;
+  background: #fafafa;
+  color: #222;
+  font-family: 'Lato', sans-serif;
+}
+
+.policy-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cookie-policy h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cookie-policy h1 span[role="img"] {
+  font-size: 2rem;
+}
+
+.last-updated {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.cookie-policy h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #e53935;
+  font-size: 1.4rem;
+}
+
+.cookie-policy p,
+.cookie-policy ul {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.cookie-policy ul {
+  padding-left: 1.5rem;
+}
+
+.cookie-policy li {
+  margin-bottom: 0.6rem;
+}
+
+.cookie-policy strong {
+  font-weight: 600;
+  color: #111;
+}
+
+.cookie-policy a {
+  color: #0077cc;
+  text-decoration: underline;
+}
+

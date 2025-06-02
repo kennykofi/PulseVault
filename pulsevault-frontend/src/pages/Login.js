@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 import MascotPanel from "../components/MascotPanel";
+import pulsevaultLogo from "../assets/pulsevault-logo.webp";
+import { hasConsentedToCookies } from "../utils/cookieConsent";
 
-// ✅ Setup axios baseURL globally
+// Setup axios baseURL globally
 axios.defaults.baseURL = "http://localhost:5001";
 axios.defaults.withCredentials = true;
 
@@ -33,6 +35,12 @@ function Login() {
     e.preventDefault();
     setError("");
 
+    // Block login if cookies are not accepted
+    if (!hasConsentedToCookies()) {
+      alert("You must accept cookies to log in.");
+      return;
+    }
+
     try {
       await axios.post("/auth/login", {
         email: formData.email,
@@ -55,7 +63,7 @@ function Login() {
         otp,
       });
 
-      // ✅ Redirect to dashboard on success
+      // Redirect to dashboard on success
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.error || "OTP verification failed.");
@@ -69,6 +77,14 @@ function Login() {
       <div className="form-panel">
         {step === "login" ? (
           <form onSubmit={handleLogin}>
+            <div className="logo-wrapper">
+              <img
+                src={pulsevaultLogo}
+                alt="PulseVault Logo"
+                className="pulsevault-logo"
+              />
+            </div>
+
             <h2>Welcome Back</h2>
             <p className="form-subtitle">Log in to access your dashboard!</p>
 
@@ -107,13 +123,22 @@ function Login() {
             <button type="submit" className="login-button">Log In</button>
             <div className="divider">OR</div>
             <p className="signup-prompt">
-              Don’t have an account? <Link to="/register">Sign up</Link>
+              Don’t have an account? <Link to="/register">Sign up for free</Link>
             </p>
           </form>
         ) : (
           <form onSubmit={handleVerifyOtp} className="otp-container">
+            <div className="logo-wrapper">
+              <img
+                src={pulsevaultLogo}
+                alt="PulseVault Logo"
+                className="pulsevault-logo"
+              />
+            </div>
+
             <h2>Enter One-Time Password</h2>
             <p className="form-subtitle">We’ve sent a 6-digit code to your email</p>
+            <p className="form-subtitle">If you don’t see the email in your inbox, be sure to check your spam or junk folder.</p>
 
             <input
               type="text"
@@ -124,7 +149,7 @@ function Login() {
               required
             />
 
-            {error && <p className="error-mesage">{error}</p>}
+            {error && <p className="error-message">{error}</p>}
 
             <button type="submit" className="login-button">Verify OTP</button>
             <div className="divider">OR</div>

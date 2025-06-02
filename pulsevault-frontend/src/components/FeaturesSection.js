@@ -22,6 +22,10 @@ function FeaturesSection() {
 
   return (
     <section className="features" id="features">
+      <div className="features-header">
+        <h2>Features</h2>
+        <p>Explore what makes PulseVault secure, smart and user-friendly</p>
+      </div>
       <div className="features-container">
         {features.map((feature, index) => (
           <div className="feature-box" key={index}>

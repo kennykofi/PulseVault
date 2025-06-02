@@ -40,9 +40,9 @@ function Navbar() {
         {/* Navigation Links */}
         <nav className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
           <button className="nav-link" onClick={() => handleNavClick('home')}>Home</button>
+          <button className="nav-link" onClick={() => handleNavClick('about')}>About</button>
           <button className="nav-link" onClick={() => handleNavClick('features')}>Features</button>
           <button className="nav-link" onClick={() => handleNavClick('how')}>How It Works</button>
-          <button className="nav-link" onClick={() => handleNavClick('about')}>About</button>
           <button className="nav-link" onClick={() => handleNavClick('contact')}>Contact</button>
           
           

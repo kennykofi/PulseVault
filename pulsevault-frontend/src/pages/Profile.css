@@ -1,0 +1,192 @@
+/* === PROFILE CONTAINER === */
+.profile-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  }
+  
+  /* === HEADER BANNER + AVATAR === */
+  .profile-banner {
+  height: 120px;
+  background: linear-gradient(to right, #fbd3e9, #bbd2c5);
+  border-radius: 18px 18px 0 0;
+  margin: -2rem -2.5rem 2.5rem;
+  }
+  
+  .profile-avatar-wrapper {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  }
+  
+  .profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+  background-color: #f0f0f0;
+  }
+  
+  /* === TITLES === */
+  .profile-title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #222;
+  font-weight: 700;
+  }
+  
+  /* === CARD STYLE === */
+  .profile-card {
+  background: #fdfdfd;
+  padding: 1.5rem 1.5rem 1rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  }
+  
+  .section-heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 1rem;
+  }
+  
+  /* === FIELD STYLE === */
+  .profile-field {
+  margin-bottom: 1.2rem;
+  }
+  
+  .profile-field label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  color: #333;
+  margin-bottom: 6px;
+  }
+  
+  .profile-field .icon {
+  margin-left: 0.4rem;
+  font-size: 1.1rem;
+  }
+  
+  /* INPUTS */
+  .profile-field input,
+  .profile-field select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: border 0.3s;
+  background: #fff;
+  }
+  
+  .profile-field input:focus,
+  .profile-field select:focus {
+  border-color: #6d5dd3;
+  outline: none;
+  }
+  
+  /* === BUTTONS === */
+  .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  }
+  
+  .save-btn,
+  .cancel-btn {
+  padding: 0.8rem 2rem;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  }
+  
+  .save-btn {
+  background-color: #6d5dd3;
+  color: white;
+  }
+  
+  .save-btn:hover {
+  background-color: #5545b8;
+  }
+  
+  .cancel-btn {
+  background-color: #f2f2f2;
+  color: #333;
+  }
+  
+  .cancel-btn:hover {
+  background-color: #e0e0e0;
+  }
+  
+  /* === STATUS MESSAGE === */
+  .status-message {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: green;
+  }
+
+  .last-saved-note {
+    text-align: center;
+    margin-top: 10px;
+    color: #2e7d32;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* === DELETE PROFILE === */
+.delete-section {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.delete-btn {
+  background: none;
+  color: #e53935;
+  font-weight: bold;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0.6rem 1.2rem;
+}
+
+.delete-btn:hover {
+  color: #c62828;
+}
+
+  
+  
+  /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+  .profile-container {
+  padding: 1.5rem;
+  }
+  
+  .button-group {
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .save-btn,
+  .cancel-btn {
+  width: 100%;
+  max-width: 300px;
+  }
+  }

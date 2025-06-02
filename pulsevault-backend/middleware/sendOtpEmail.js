@@ -14,10 +14,11 @@ const sendOtpEmail = async (to, otp) => {
     to,
     subject: "Your One-Time Password (OTP) for PulseVault",
     html: `
-      <h2>Hello! 👋</h2>
-      <p>Your OTP is:</p>
+      <h2>Hello! </h2>
+      <p>Your One Time Password is:</p>
       <h3 style="color: #e53935">${otp}</h3>
-      <p>This code is valid for 5 minutes. Do not share it with anyone.</p>
+      <p>This code is valid for 5 minutes. For security reasons, please <b>do not share</b> this OTP with anyone.</p>
+      <p>If you did not request this code, please ignore this message or contact us immediately.</p>
       <br />
       <p>Stay secure,</p>
       <strong>PulseVault Team</strong>
@@ -28,3 +29,5 @@ const sendOtpEmail = async (to, otp) => {
 };
 
 module.exports = sendOtpEmail;
+
+
